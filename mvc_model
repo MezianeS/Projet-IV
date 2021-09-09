@@ -1,0 +1,8 @@
+Users interact with “View” – submitting forms or clicking links
+Controller handles user input by transferring the information to Model
+Model in turn receives these information and add to the database to update itself
+The View therein checks the update and responds necessarily
+The View waits for the next interaction from user
+
+
+source: https://www.goodworklabs.com/principles-of-mvc-for-php-developers/ 
