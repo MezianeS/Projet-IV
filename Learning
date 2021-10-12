@@ -1,2 +1,15 @@
 Utilisation de plusieurs sites permettant l'apprentissage de php : https://www.w3schools.com/php/php_oop_classes_objects.asp
 https://openclassrooms.com/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/4239476-session-cookies
+
+
+-- Apprentissage du MVC à travers plusieurs sites (W3school, OpenClassR, Udemy ).
+Familiarisation des class en php lors du dernier projet ( javascript ) et du second projet ( wordpress ).
+Utilisation d'une vidéo Udemy sur la création du MVC en oop.
+
+Structure de l'application MVC - Utilisation de dossiers différent permettant la differenciation entre l'application et le reste ( css, js, etc... ).
+Création de fichier .htaccess dans le dossier app, public et le répertoire par défaut permettant l'incapacité d'autrui d'interférer dans les dossiers via l'url.
+Redirection de l'ensemble des url vers la page d'index.
+
+Création d'un fichier bootstrap permettant le chargement des fichiers du dossier libraries.
+Le dossier permettant d'avoir un nombre non défini de fichier, un autoload a été mit en place permettant l'automatisation des chargements dans le fichier libraries.
+
