@@ -1,0 +1,26 @@
+
+/******************Administrator*****************/
+.adminbg{
+	background-color: #eff3f6;
+}
+.adminprincipal{
+	border-top-right-radius: 25px;
+	border-top-left-radius: 25px;
+}
+.admintxt{
+	margin-bottom: 75px!important;
+}
+.adminbutton{
+	margin-bottom: 150px!important;
+}
+.adminbuttonposts, .adminbutton{
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+} 
+.adminposts--infos{
+	font-size: 12px;
+}
+.reportmsg{
+	font-size: 13px;
+}

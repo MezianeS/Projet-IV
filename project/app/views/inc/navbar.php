@@ -18,7 +18,7 @@
       <ul class="navbar-nav">
         <?php if(isset($_SESSION['user_id'])) :  ?>
           <li class="nav-item">
-              <a class="nav-link" aria-current="page" href='<?php if(isLoggedInAdmin() == true) { ?> <?php echo URLROOT; ?>/admins/index"><?php } ?>'
+              <a class="nav-link" aria-current="page" href='<?php if(isLoggedInAdmin() == true) { ?> <?php echo URLROOT; ?>/admins/index<?php } ?>'
               >Bonjour <?php echo $_SESSION['user_name']; ?>  </a>
               </li>
           <li class="nav-item">

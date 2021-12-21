@@ -22,54 +22,55 @@
 		}
 
 		public function add(){
-			if($_SERVER['REQUEST_METHOD'] == 'POST'){
-				// Sanitize POST array
-				// $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-				//A enlever sinon tinymce ne fonctionne pas.
+			if(isLoggedInAdmin()){
+				if($_SERVER['REQUEST_METHOD'] == 'POST'){
+					// Sanitize POST array
+					// $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+					//A enlever sinon tinymce ne fonctionne pas.
 
+					$data = [
+					'title' => trim($_POST['title']),
+					'body' => trim($_POST['body']),
+					'user_id' => $_SESSION['user_id'],
+					'title_err' => '',
+					'body_err' => '',
+				];
+
+				//validate title
+				if(empty($data['title'])){
+					$data['title_err'] = 'Entrez un titre';
+				}			
+				if(empty($data['body'])){
+					$data['body_err'] = 'Entrez un texte';
+				}		
+
+				//Make sure no errors
+				if(empty($data['title_err']) && empty($data['body_err'])){
+					//validated
+					if($this->postModel->addPost($data)){
+						flash('post_message', 'Poste ajouté');
+						redirect('posts');
+					} else {
+						die("L'ajout de poste ne s'est pas passé comme prévu.");
+					}
+				}	else {
+					//load view with errors
+					$this->view('posts/add', $data);
+				}
+				} else {
 				$data = [
-				'title' => trim($_POST['title']),
-				'body' => trim($_POST['body']),
-				'user_id' => $_SESSION['user_id'],
-				'title_err' => '',
-				'body_err' => '',
-			  ];
+					'title' => '',
+					'body' => '',
+				];
 
-			  //validate title
-			  if(empty($data['title'])){
-			  	$data['title_err'] = 'Entrez un titre';
-			  }			
-			  if(empty($data['body'])){
-			  	$data['body_err'] = 'Entrez un texte';
-			  }		
-
-			  //Make sure no errors
-			  if(empty($data['title_err']) && empty($data['body_err'])){
-			  	//validated
-			  	if($this->postModel->addPost($data)){
-			  		flash('post_message', 'Poste ajouté');
-			  		redirect('posts');
-			  	} else {
-			  		die("Quelque chose n'est pas bon");
-			  	}
-			  }	else {
-			  	//load view with errors
-			  	$this->view('posts/add', $data);
-			  }
-			} else {
-			  $data = [
-				'title' => '',
-				'body' => '',
-			  ];
-
-			$this->view('posts/add', $data);
+				$this->view('posts/add', $data);
+				}
 			}		
 		}
 
 
 	public function edit($id){
 			if($_SERVER['REQUEST_METHOD'] == 'POST'){
-				// Sanitize POST array
 				//$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 				//A enlever sinon tinymce ne fonctionne pas.
 
@@ -82,17 +83,16 @@
 				'body_err' => '',
 			  ];
 
-			  //validate title
+			  //On valide le titre et le body
 			  if(empty($data['title'])){
-			  	$data['title_err'] = 'Entrez un titre';
+			  	$data['title_err'] = 'Entrer un titre';
 			  }			
 			  if(empty($data['body'])){
-			  	$data['body_err'] = 'Entrez un texte';
+			  	$data['body_err'] = 'Entrer un texte';
 			  }		
 
-			  //Make sure no errors
+			  //On s'asure qu'il n'y a pas d'erreurs. 
 			  if(empty($data['title_err']) && empty($data['body_err'])){
-			  	//validated
 			  	if($this->postModel->updatePost($data)){
 			  		flash('post_message', 'Poste modifié avec succès');
 			  		redirect('posts');
@@ -100,13 +100,11 @@
 			  		die("Quelque chose n'est pas bon");
 			  	}
 			  }	else {
-			  	//load view with errors
 			  	$this->view('posts/edit', $data);
 			  }
 			} else {
-				// Get existing post form model
 				$post = $this->postModel->getPostById($id);
-			  //Check for owner
+			  //Verif users.
 				if($post->user_id != $_SESSION['user_id']){
 					redirect('posts');
 				}
@@ -161,7 +159,7 @@
    	public function comment($id){
    		if($_SERVER['REQUEST_METHOD'] == 'POST'){
 				// Sanitize POST array
-				//$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+				$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
    				//A enlever sinon tinymce ne fonctionne pas.
 				$post = $this->postModel->getPostById($id);
 
@@ -172,14 +170,14 @@
             	'post_id' => $post->id,
 			  ];
 
-			  //validate title
+			
 			  if(empty($data['commentbody'])){
-			  	$data['commentbody_err'] = 'Svp entrer un commentaire';
+			  	$data['commentbody_err'] = 'Veuillez entrer un commentaire.';
 			  }			
 			  
 			  //Make sure no errors
 			  if(empty($data['commentbody_err'])){
-			  	//validated
+			  	//validation
 			  	if($this->commentModel->addComm($data)){
 			  		flash('post_message', 'Commentaire ajouté');
 			  		redirect('posts/');
@@ -201,5 +199,16 @@
 			$this->view('posts/comment', $data);
 			}
 
+	}
+
+	public function reporttest($id){
+		$comment = $this->commentModel->getCommByPost($id);
+
+		if($this->commentModel->reportComm($id)){
+			flash('post_message', 'Commentaire signalé, un administrateur se chargera de prendre en charge votre requête.');
+			redirect('posts/');
+		} else {
+			die('Êtes-vous sûr d"avoir signalé le commentaire ?');
+		}
 	}
 }

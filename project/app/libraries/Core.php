@@ -10,8 +10,6 @@ class Core {
 	protected $params = [];
 
 	public function __construct(){
-		//print_r($this->getUrl());
-
 		$url = $this->getUrl();
 
 		// regarder si le controller pour la première valeur.
@@ -25,7 +23,7 @@ class Core {
 		//require the controller 
 		require_once '../app/controllers/'. $this->currentController . '.php';
 
-		//instatntiate controller class
+		//initiation  controller class
 		$this->currentController = new $this->currentController;
 
 		//check for second part of url

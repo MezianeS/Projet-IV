@@ -1,16 +1,16 @@
 <?php 
 
 	/*
-	 * Base controller
-	 * Loads the models and views
+	 * CONTROLLER
+	 * CHARGE LES MODELES ET VUES.
 	 */
 	class Controller {
-		// Load model
+		// charge le modèle
 		public function model($model){
 			// Require model file
 			require_once '../app/models/' . $model . '.php';
 
-			//Instatiate model
+			//initiation 
 			return new $model();
 		}
 
@@ -22,7 +22,7 @@
 				require_once '../app/views/' . $view . '.php';
 			} else {
 				//view does not exist
-			  die('View does not exist');
+			  die("La vue n'existe pas");
 			}
 		}
 	}

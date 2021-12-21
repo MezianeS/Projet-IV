@@ -1,11 +1,4 @@
 <?php 
- /*
-  * PDO database class
-  * connect to database
-  * create prepared statements
-  * bind values
-  * return rows and results
-  */
 
  class Database {
  	private $host = DB_HOST;

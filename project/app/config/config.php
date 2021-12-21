@@ -15,6 +15,4 @@
  // Site name
  define('SITENAME', "Billet simple pour l'Alaska" );
 
- // App version
- define('APPVERSION', '1.0.0');
  

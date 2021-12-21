@@ -9,7 +9,7 @@
 		<div class="container bg-white p-3 entetestyle__article" >
 		<h1 class="entetetitre text-center p-2"><?php echo $data['title_one']; ?></h1>
 		<p class="p-2"> <?php echo $data['description']; ?> </p>
-		<p> Version: <strong><?php echo APPVERSION; ?></strong> </p>
+		
 		</div>
 
 		<div class="container bg-white p-3 entetestyle__article text-center">

@@ -56,7 +56,7 @@
   <!-- Copyright -->
   <div class="text-center text-light p-3" style="background-color: rgba(0, 0, 0, 0.2);">
     © 2021 Copyright:
-    <a class="text-light" href="https://sofiane.meziane.com/">Sofiane Meziane</a>
+    <a class="text-light" href="https://mezianesofiane.com/">Sofiane Meziane</a>
   </div>
   <!-- Copyright -->
 </footer>

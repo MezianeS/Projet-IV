@@ -1,5 +1,5 @@
 <?php
-  // Simple page redirect
+  // Redirection 
   function redirect($page){
     header('location: ' . URLROOT . '/' . $page);
   }

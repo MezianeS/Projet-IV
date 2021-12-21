@@ -6,17 +6,20 @@
 		public function __construct(){
 			$this->dbcomm = new Database;
 		}
-
+		
 		public function getComm(){
 			$this->dbcomm->query('SELECT *,
-								comments.id as commId,
-								comments.created_at as commentsCreated,
-								users.created_at as userCreated,
-								comments.post_id as postesId
-								FROM comments 
-								INNER JOIN users
-								ON comments.user_id = users.id
-								ORDER BY comments.created_at DESC
+								commentsalaska.id as commId,
+								commentsalaska.created_at as commentsCreated,
+								usersalaska.created_at as userCreated,
+								commentsalaska.post_id as postesId,
+								postsalaska.title as postesTitle
+								FROM commentsalaska
+								INNER JOIN usersalaska
+								ON commentsalaska.user_id = usersalaska.id
+								INNER JOIN postsalaska
+								ON commentsalaska.post_id = postsalaska.id
+								ORDER BY commentsalaska.report DESC
 								');
 
 
@@ -26,7 +29,7 @@
 		}
 
 		public function addComm($data){
-			$this->dbcomm->query('INSERT INTO comments (user_id, post_id, commentbody) VALUES(:user_id, :post_id, :commentbody)');
+			$this->dbcomm->query('INSERT INTO commentsalaska (user_id, post_id, commentbody) VALUES(:user_id, :post_id, :commentbody)');
 			//Bind values
 			$this->dbcomm->bind(':user_id', $data['user_id']);
 			$this->dbcomm->bind(':post_id', $data['post_id']); 
@@ -44,16 +47,18 @@
 
 		public function getCommByPost($id){
 			$this->dbcomm->query('SELECT *,
-								comments.created_at as commentsCreated,
-								users.created_at as userCreated,
-								comments.post_id as postesId
-								FROM comments 
-								INNER JOIN users
-								ON comments.user_id = users.id
-								INNER JOIN posts
-								ON comments.post_id = posts.id
+								commentsalaska.created_at as commentsCreated,
+								usersalaska.created_at as userCreated,
+								commentsalaska.post_id as postesId,
+								commentsalaska.id as idcomm,
+								postsalaska.title as postesTitle
+								FROM commentsalaska
+								INNER JOIN usersalaska
+								ON commentsalaska.user_id = usersalaska.id
+								INNER JOIN postsalaska
+								ON commentsalaska.post_id = postsalaska.id
 								WHERE post_id = :id
-								ORDER BY comments.created_at DESC');
+								ORDER BY commentsalaska.created_at DESC');
 			$this->dbcomm->bind(':id', $id);
 
 			$results = $this->dbcomm->resultSet();
@@ -63,7 +68,7 @@
 
 
 		public function deleteComm($id){
-			$this->dbcomm->query('DELETE FROM comments WHERE id = :id');
+			$this->dbcomm->query('DELETE FROM commentsalaska WHERE id = :id');
 			//Bind values
 			$this->dbcomm->bind(':id', $id);
 
@@ -74,6 +79,18 @@
 				return false;
 			}
 		}
+
+		public function reportComm($id){
+			$this->dbcomm->query('UPDATE commentsalaska SET report = report + 1 WHERE id = :id');
+			$this->dbcomm->bind(':id', $id);
+
+			if($this->dbcomm->execute()){
+				return true;
+			} else {
+				return false;
+			}
+		}
+
 
 	}
 

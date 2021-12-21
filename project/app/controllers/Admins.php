@@ -12,8 +12,6 @@
 
 
 		public function index(){
-			// Get posts
-			
 			$cmts = $this->commentModel->getComm();
 			$posts = $this->postModel->getPosts();
 
@@ -28,6 +26,7 @@
 
 		public function posts(){
 			$posts = $this->postModel->getPosts();
+
 			$data = [
 				'posts' => $posts,
 			];
@@ -57,9 +56,11 @@
 
     public function comments(){
 			$comments = $this->commentModel->getComm();
+			$posts = $this->postModel->getPosts();
 
 			$data = [
 				'comments' => $comments,
+				'posts' => $posts,
 			];
 
 			$this->view('admins/comments', $data);
@@ -68,9 +69,9 @@
 
 	public function deletecommentaire($id){
     	if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    		// Get existing post form model
-				$deletecomments = $this->commentModel->getComm($id);
-			  //Check for owner
+    		
+			$deletecomments = $this->commentModel->getComm($id);
+			  
     		if($this->commentModel->deleteComm($id)){
     			flash('post_message', 'Commentaire supprimé par un administrateur.');
     			redirect('admins/comments');
@@ -82,7 +83,5 @@
     	}
 
     }
-
-
 
 }

@@ -1,7 +1,3 @@
-<?php 
-//ajouter le fameux logiciel permettant d'ajouter le texte à la main car trop complexe pour cet idiot.
-?>
-
 <?php require APPROOT . '/views/inc/header.php'; ?>
 <style> .navbar--custom{display: none;}</style>
 

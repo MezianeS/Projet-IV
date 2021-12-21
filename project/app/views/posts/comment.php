@@ -13,7 +13,7 @@
  			<form action=" <?php echo URLROOT; ?>/posts/comment/<?php echo $data['id']; ?> " method="post">
  				<div class="form-group">
  					<label for="commentbody"></label>
- 					<textarea placeholder="Donnez votre avis!" name="commentbody" class="mytextarea posts--comments--text form-control form-control-lg<?php echo (!empty($data['commentbody_err'])) ? 'is-invalid' : ''; ?>"><?php echo $data['commentbody']; ?></textarea>
+ 					<textarea placeholder="Donnez votre avis!" name="commentbody" class="posts--comments--text form-control form-control-lg<?php echo (!empty($data['commentbody_err'])) ? 'is-invalid' : ''; ?>"><?php echo $data['commentbody']; ?></textarea>
  					<span class="invalid-feedback"> <?php echo $data['commentbody_err']; ?></span>
  				</div>
  				<input type="submit" class="edite-posts-button btn btn-success mt-3 mb-3" value="Envoyer">

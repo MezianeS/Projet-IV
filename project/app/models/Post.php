@@ -8,14 +8,15 @@
 		}
 		public function getPosts(){
 			$this->db->query('SELECT *,
-							posts.id as postId,
-							users.id as userId,
-							posts.created_at as postCreated,
-							users.created_at as userCreated
-							FROM posts
-							INNER JOIN users
-							ON posts.user_id = users.id
-							ORDER BY posts.created_at DESC
+							postsalaska.id as postId,
+							usersalaska.id as userId,
+							postsalaska.created_at as postCreated,
+							usersalaska.created_at as userCreated,
+							postsalaska.title as postTitle
+							FROM postsalaska
+							INNER JOIN usersalaska
+							ON postsalaska.user_id = usersalaska.id
+							ORDER BY postsalaska.created_at DESC
 							');
 
 			$results = $this->db->resultSet();
@@ -24,7 +25,7 @@
 		}
 
 		public function addPost($data){
-			$this->db->query('INSERT INTO posts (title, user_id, body) VALUES(:title, :user_id, :body)');
+			$this->db->query('INSERT INTO postsalaska (title, user_id, body) VALUES(:title, :user_id, :body)');
 			//Bind values
 			$this->db->bind(':title', $data['title']);
 			$this->db->bind(':user_id', $data['user_id']);
@@ -41,7 +42,7 @@
 
 
 		public function updatePost($data){
-			$this->db->query('UPDATE posts SET title = :title, body = :body WHERE id = :id');
+			$this->db->query('UPDATE postsalaska SET title = :title, body = :body WHERE id = :id');
 			//Bind values
 			$this->db->bind(':id', $data['id']);
 			$this->db->bind(':title', $data['title']);
@@ -58,7 +59,7 @@
 
 
 		public function getPostById($id){
-			$this->db->query('SELECT * FROM posts WHERE id = :id');
+			$this->db->query('SELECT * FROM postsalaska WHERE id = :id');
 			$this->db->bind(':id', $id);
 
 			$row = $this->db->single();
@@ -68,7 +69,7 @@
 		}
 
 		public function deletePost($id){
-			$this->db->query('DELETE FROM posts WHERE id = :id');
+			$this->db->query('DELETE FROM postsalaska WHERE id = :id');
 			//Bind values
 			$this->db->bind(':id', $id);
 

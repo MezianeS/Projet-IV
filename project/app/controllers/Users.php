@@ -35,7 +35,7 @@
 					} else {
 						// Check email
 						if($this->userModel->findUserByEmail($data['email'])){
-							$data['email_err'] = "L'adresse email est déjà utilisé.";
+							$data['email_err'] = "L'adresse est invalide.";
 						}
 					}
 
@@ -106,14 +106,11 @@
 
 
 			public function login(){
-				//Check for POST
 				if($_SERVER['REQUEST_METHOD'] == 'POST' ){
-				//Process form
 				// Sanitize POST data
 					$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
 
-					//Init data
 					$data =[
 						'email' => trim($_POST['email']),
 						'password' => trim($_POST['password']),
@@ -137,14 +134,13 @@
 
 					} else {
 						//User not found
-						$data['email_err'] = "Pas d'utilisateur lié à cet email";
+						$data['email_err'] = "L'adresse mail est incorrecte.";
 					}
 					
 					
 					//Make sure errors are empty
   					if(empty($data['email_err']) && empty($data['password_err'])){
   						//Validated 
-  						//Check and set logged in user
   						$loggedInUser = $this->userModel->login($data['email'], $data['password']);
 
   						if($loggedInUser){
@@ -182,6 +178,7 @@
 				$_SESSION['user_id'] = $user->id;
 				$_SESSION['user_email'] = $user->email;
 				$_SESSION['user_name'] = $user->name;
+				$_SESSION['user_admin'] = $user->admin;
 				redirect('posts');
 
 			}
