@@ -1,0 +1,156 @@
+body{
+	font-family: 'Roboto', sans-serif;
+}
+.animtitle{
+	animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+@keyframes fadeInAnimation {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+.fondcolor {
+  background: #E6D1FA;
+  padding: 0;
+  max-width: 100%;
+}
+/*******************MESSAGE FLASH*****************/
+#msg-flash{
+	margin:0;
+}
+/** Navbar **/
+.navbar--custom {
+	background-color: #68abff;
+}
+/* Body site //articles */
+.entetecolor{
+	background: #68abff;
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to bottom, rgba(104, 171, 255, 1), rgba(230, 209, 250, 1));
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to bottom, rgba(104, 171, 255, 1), rgba(230, 209, 250, 1));
+  max-width: 100%;
+  padding-bottom:100px !important;
+}
+
+/**entete**/
+.container .entetestyle{
+	border-top-left-radius: 25px;
+	border-top-right-radius: 25px;
+	background-color: #f5ebff;
+}
+.container .display-3{
+	font-weight: 700;
+	font-size: 50px;
+}
+.container .lead{
+	font-weight:400;
+}
+.entetestyle__article, .register-dgn{
+	margin-top: 15px;
+	margin-bottom: 55px;
+	border-radius: 15px;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.entetetitre{
+margin-top: 20px;
+margin-bottom: 30px;
+font-size: 30px;
+font-weight: 600;
+}
+
+/**FIN entete**/
+/*About pages**/
+.fondcolorabout{
+	background-color: #11110f;
+	max-width: 100%;
+	padding: 0;
+	margin: 0;
+}
+.container .entetestyleabout{
+	background-color: #6692cb;
+	border-top-left-radius: 25px;
+	border-top-right-radius: 25px;
+	max-width: 100%;
+}
+/*fin about*/
+
+/*Login page*/
+.return--button{
+	margin: 0;
+	padding-top: 30px;
+	padding-left: 15px;
+}
+.return--button--b{
+	background-color: white;
+	text-align: center;
+	width: 100px;
+	border-radius: 30px;
+	box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+.logintitle{
+	padding-top: 60px;
+	padding-bottom: 80px;
+}
+.login--login{
+	margin-top: 40px;
+	margin-bottom: 10px;
+}
+.login--button{
+	width: 100%;
+	border-radius: 30px;
+	background: linear-gradient(to right, rgba(104, 171, 255, 1), rgba(230, 209, 250, 1));
+	border: none;
+	box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+.login--back{
+	width: 100%;
+	border-radius: 30px;
+	background-color: #e9e9e9;
+	box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+
+}
+
+/* fin login page */
+
+/* register page */
+
+.register-dgn {
+	border-radius: 30px;
+	background-color: white;
+}
+/* fin register page */
+
+
+/****SLIDER******/
+.posts--articles{
+	flex-shrink:0;
+	height: 400px;
+	width: 300px;
+	border-radius: 15px;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.posts--content{
+	overflow-y: hidden;
+	-webkit-overflow-scrolling: touch;
+}
+
+/*************COMMENTS**************/
+.posts--comments--text{
+	font-size: 14px;
+	padding: 5px;
+	height: 350px;
+}
+
+
+
+/********BOOTSTRAPSCONFIG**********************/
+.container, .container-md, .container-sm{
+	max-width: 100%;
+}

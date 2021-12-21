@@ -1,0 +1,61 @@
+
+/********SHOW page ************/
+.postsshow--fond{
+	background-color:#eff3f6;
+	padding: 0;
+}
+.postsshow--arrow{
+	color: #68abff;
+}
+.postsshow--fondposts{
+	background-color: white;
+	border-top-right-radius: 20px;
+	border-top-left-radius: 20px;
+}
+.postsshow--button{
+	width: 70%;
+	border-radius: 30px;
+	background: linear-gradient(to right, rgba(104, 171, 255, 1), rgba(230, 209, 250, 1));
+	border: none;
+	box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+.postsshow--delete{
+	border-radius: 30px;
+	width: 70%;
+	border: none;
+	box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.postsshow--comments--button{
+	border-radius: 15px;
+	background-color: #1c5dad;
+	border: none;
+	box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+.postsshow--comments--id{
+	display: none;
+}
+.postsshow--comments--body{
+	font-size: 14px;
+}
+.postsshow--comments--infos{
+	font-size: 12px;
+}
+.reportershow{
+	font-size: 12px;
+	border-style: none;
+	background-color: white;
+	font-style: italic;
+}
+.show--report{
+	font-size: 12px;
+}
+
+.btnsignal{
+	text-decoration: none;
+	border: none;
+	background-color: rgba(240, 240, 240, 0.09);
+	font-style: italic;
+	font-size: 12px;
+	text-align: left;
+}

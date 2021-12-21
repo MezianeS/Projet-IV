@@ -1,0 +1,102 @@
+/*********************POSTS**************************************/
+.posts--fond{
+	background-color: #eff3f6;
+}
+.posts--titre{
+	margin-top: 25px;
+	font-size: 25px;
+}
+.posts--button{
+	margin-top: 25px;
+	border-radius: 30px;
+	background: linear-gradient(to right, rgba(104, 171, 255, 1), rgba(230, 209, 250, 1));
+	border: none;
+	box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+.posts--content{
+	background-color: white;
+	width: 100%;
+	border-top-right-radius: 15px;
+	border-top-left-radius: 15px;
+}
+
+.posts--plus-button{
+	background-color: grey;
+	border-radius: 100px;
+	width: 38px;
+	background: linear-gradient(to right, rgba(104, 171, 255, 1), rgba(230, 209, 250, 1));
+	border: none;
+	box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+	position: absolute;
+	bottom: -16px;
+	right: 45%;
+}
+.posts--articles--title{
+	font-weight: bold;
+	font-size: 25px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: #1c5dad;
+}
+.posts--articles--author{
+	font-size: 12px;
+	font-weight: 350;
+}
+.posts--articles--content{
+	overflow: hidden;
+}
+
+/***** ADD POST ********/
+
+.postsnew--color{
+	background: #68abff;
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to bottom, rgba(104, 171, 255, 1), rgba(230, 209, 250, 1));
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to bottom, rgba(104, 171, 255, 1), rgba(230, 209, 250, 1));
+  max-width: 100%;
+}
+
+.fa-arrow-left{
+	font-weight:100;
+	font-size: 28px;
+}
+.postsnew--arrow{
+	margin-top: 50px;
+}
+.postsnew--title{
+	font-weight:700;
+	font-size: 45px;
+}
+.postsnew--formulaire{
+	border-radius: 20px;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.postsnew--text{
+	height: 350px;
+	font-size: 14px;
+}
+
+/****EDITION******/
+.edite-posts{
+	background-color: white;
+	border-radius: 20px;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+	
+}
+.edite-posts-text{
+	height: 480px;
+	font-size: 15px;
+
+}
+.edite-posts-button{
+	width: 100%;
+	border-radius: 30px;
+	background: linear-gradient(to right, rgba(104, 171, 255, 1), rgba(230, 209, 250, 1));
+	border: none;
+	box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+
+}
+.blcktext {
+	overflow: hidden;
+}
